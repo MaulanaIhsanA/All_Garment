@@ -21,3 +21,39 @@ if(hamburger){
   });
   mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
 }
+
+/* ============================================================
+   Scroll reveal — fade + rise elements into view once, staggered.
+   Call initReveal(scopeElement) after any dynamic render (catalog
+   cards, product detail, portfolio slides, album grid) so newly
+   created .reveal-item elements get observed too.
+   ============================================================ */
+function initReveal(scope){
+  const root = scope || document;
+  const items = root.querySelectorAll('.reveal-item:not(.revealed)');
+  if(!items.length) return;
+
+  if(!('IntersectionObserver' in window)){
+    items.forEach(el=>el.classList.add('revealed'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+
+  items.forEach((el, i)=>{
+    if(!el.style.transitionDelay){
+      el.style.transitionDelay = `${Math.min(i % 8, 7) * 70}ms`;
+    }
+    observer.observe(el);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', ()=>initReveal());
+

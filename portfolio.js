@@ -20,7 +20,7 @@ function renderCarousel(){
   portfolioCarousel.innerHTML = Object.keys(PRODUCTS).map(key=>{
     const p = PRODUCTS[key];
     return `
-      <div class="portfolio-slide" data-key="${key}" tabindex="0" role="button" aria-label="Open ${p.name[lang]} gallery">
+      <div class="portfolio-slide reveal-item" data-key="${key}" tabindex="0" role="button" aria-label="Open ${p.name[lang]} gallery">
         <div class="slide-image">
           <img src="${p.thumbImage}" alt="${p.name[lang]}" loading="lazy"
             onerror="this.remove(); this.parentElement.classList.add('no-image')">
@@ -38,6 +38,8 @@ function renderCarousel(){
     el.addEventListener('click', ()=>goToAlbum(el.dataset.key));
     el.addEventListener('keypress', e=>{ if(e.key==='Enter') goToAlbum(el.dataset.key); });
   });
+
+  initReveal(portfolioCarousel);
 }
 
 function scrollCarousel(dir){
@@ -60,7 +62,7 @@ function renderAlbum(key){
     <h2 style="margin-top:0;font-family:var(--font-display);font-weight:400;font-size:clamp(32px,4.4vw,52px);">${p.name[lang]} ${t('gallery_suffix')}</h2>
     <div class="album-grid">
       ${photos.map((src,i)=>`
-        <div class="album-photo" data-index="${i}" tabindex="0" role="button" aria-label="Open photo ${i+1}">
+        <div class="album-photo reveal-item" data-index="${i}" tabindex="0" role="button" aria-label="Open photo ${i+1}">
           ${src ? `<img src="${src}" alt="${p.name[lang]} ${i+1}" loading="lazy" onerror="this.remove(); this.parentElement.classList.add('no-image')">` : ''}
           <div class="swatch-placeholder"><span>${p.name[lang]} 0${i+1}</span></div>
         </div>`).join('')}
@@ -72,6 +74,7 @@ function renderAlbum(key){
     el.addEventListener('click', ()=>openAlbumLightbox(key, Number(el.dataset.index)));
     el.addEventListener('keypress', e=>{ if(e.key==='Enter') openAlbumLightbox(key, Number(el.dataset.index)); });
   });
+  initReveal(portfolioAlbum);
 }
 
 function showCarousel(){

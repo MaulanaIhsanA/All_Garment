@@ -13,7 +13,6 @@ const I18N = {
     order_now: "Pesan Sekarang",
 
     hero_eyebrow: "Custom Garment & Konveksi",
-    hero_tagline: "Apparel Custom, Dibangun untuk Identitas",
     hero_cta: "Jelajahi Katalog Kami",
 
     profile_eyebrow: "Siapa Kami",
@@ -61,7 +60,6 @@ const I18N = {
     order_now: "Order Now",
 
     hero_eyebrow: "Custom Garment & Konveksi",
-    hero_tagline: "Custom Apparel, Built For Identity",
     hero_cta: "Explore Our Catalog",
 
     profile_eyebrow: "Who We Are",

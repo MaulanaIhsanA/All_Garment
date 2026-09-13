@@ -16,7 +16,7 @@ function renderCatalog(){
   catalogGrid.innerHTML = Object.keys(PRODUCTS).map(key=>{
     const p = PRODUCTS[key];
     return `
-      <div class="product-card" data-key="${key}" tabindex="0" role="button" aria-label="View ${p.name[lang]} details">
+      <div class="product-card reveal-item" data-key="${key}" tabindex="0" role="button" aria-label="View ${p.name[lang]} details">
         <span class="p-index">${p.index}</span>
         <div class="thumb">
           <img src="${p.thumbImage}" alt="${p.name[lang]}" loading="lazy"
@@ -34,6 +34,8 @@ function renderCatalog(){
     card.addEventListener('click', ()=>goToProduct(card.dataset.key));
     card.addEventListener('keypress', e=>{ if(e.key==='Enter') goToProduct(card.dataset.key); });
   });
+
+  initReveal(catalogGrid);
 }
 
 function renderSizeChart(sizeChart){
@@ -118,12 +120,12 @@ function renderProductDetail(key){
   productDetail.innerHTML = `
     <button class="back-btn" id="backToCatalog">${t('back_to_catalog')}</button>
     <div class="detail-grid">
-      <div class="detail-image">
+      <div class="detail-image reveal-item">
         <img src="${p.detailImage}" alt="${p.name[lang]}"
           onerror="this.remove(); this.parentElement.classList.add('no-image')">
         <div class="swatch-placeholder"><span>${p.name[lang]}</span></div>
       </div>
-      <div class="detail-info">
+      <div class="detail-info reveal-item">
         <h2>${p.name[lang]}</h2>
         <p class="d-desc">${p.description[lang]}</p>
         ${renderSizeChart(p.sizeChart)}
@@ -134,6 +136,8 @@ function renderProductDetail(key){
 
   document.getElementById('backToCatalog').addEventListener('click', ()=>history.back());
   wireSizeToggle(productDetail);
+  productDetail.querySelector('.materials-section').classList.add('reveal-item');
+  initReveal(productDetail);
 }
 
 function showGrid(){
