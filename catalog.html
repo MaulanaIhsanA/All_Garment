@@ -3,28 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ALL GARMENT — Custom Apparel, Built For Identity</title>
+<title>Catalog — ALL GARMENT</title>
 <link rel="icon" type="image/png" href="images/logo-black.png">
 <link rel="apple-touch-icon" href="images/logo-black.png">
-<meta name="description" content="ALL GARMENT — produsen apparel custom dan konveksi. Seragam, pakaian kerja, kemeja, jaket, dan apparel custom dengan kualitas dan presisi.">
+<meta name="description" content="Katalog custom apparel ALL GARMENT — kemeja, workshirt, PDH, jaket, rompi, jas lab, lanyard, dan ID card.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-profile">
-
-<div id="veil"><span>All Garment</span></div>
+<body class="page-catalog">
 
 <!-- ============ NAVIGATION ============ -->
-<nav class="nav" id="mainNav">
+<nav class="nav solid" id="mainNav">
   <div class="nav-brand">
     <img src="images/logo-white.png" alt="ALL GARMENT logo">
     <span class="wordmark">All Garment</span>
   </div>
   <div class="nav-links" id="navLinks">
-    <a href="index.html" class="active" data-i18n="nav_profile">Company Profile</a>
-    <a href="catalog.html" data-i18n="nav_catalog">Catalog</a>
+    <a href="index.html" data-i18n="nav_profile">Company Profile</a>
+    <a href="catalog.html" class="active" data-i18n="nav_catalog">Catalog</a>
     <a href="portfolio.html" data-i18n="nav_portfolio">Portfolio</a>
     <div class="lang-switch">
       <button type="button" data-lang="id">ID</button>
@@ -43,8 +41,8 @@
 <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
 <div class="mobile-menu" id="mobileMenu">
   <span class="eyebrow on-dark m-eyebrow">Menu</span>
-  <a class="menu-link active" href="index.html" data-i18n="nav_profile">Company Profile</a>
-  <a class="menu-link" href="catalog.html" data-i18n="nav_catalog">Catalog</a>
+  <a class="menu-link" href="index.html" data-i18n="nav_profile">Company Profile</a>
+  <a class="menu-link active" href="catalog.html" data-i18n="nav_catalog">Catalog</a>
   <a class="menu-link" href="portfolio.html" data-i18n="nav_portfolio">Portfolio</a>
   <div class="lang-switch">
     <button type="button" data-lang="id">ID</button>
@@ -56,56 +54,20 @@
   </a>
 </div>
 
-<!-- ============ COMPANY PROFILE ============ -->
+<!-- ============ CATALOG ============ -->
 <main>
-  <section class="hero">
-    <div class="hero-inner">
-      <span class="eyebrow" data-i18n="hero_eyebrow">Custom Garment &amp; Konveksi</span>
-      <h1>All Garment</h1>
-      <p class="tagline" data-i18n="hero_tagline">Custom Apparel, Built For Identity</p>
-      <div class="hero-cta">
-        <a class="btn" href="catalog.html"><span data-i18n="hero_cta">Explore Our Catalog</span> <span class="arrow">→</span></a>
-      </div>
+  <div id="catalogGridView">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="catalog_eyebrow">Collection</span>
+      <h2 style="margin-top:16px;" data-i18n="catalog_title">Our Catalog</h2>
+      <p class="sub" data-i18n="catalog_sub">Explore our custom apparel collection.</p>
     </div>
-    <div class="scroll-cue"></div>
-  </section>
-
-  <section class="profile-section">
-    <div class="profile-grid">
-      <div class="tape"></div>
-      <div>
-        <div class="profile-head">
-          <span class="eyebrow" data-i18n="profile_eyebrow">Who We Are</span>
-          <h2 style="margin-top:18px;" data-i18n="profile_title">Company Profile</h2>
-        </div>
-        <p class="profile-lede" data-i18n="profile_p1">ALL GARMENT is a custom apparel and garment manufacturer specializing in high-quality uniforms, workwear, shirts, jackets, and customized apparel. We combine thoughtful design, quality materials, and skilled craftsmanship to create products that represent every organization, company, and community.</p>
-        <p class="profile-lede" data-i18n="profile_p2">From pattern to finishing, every piece is produced in-house — built to be worn as a mark of identity, not just a uniform.</p>
-
-        <div class="pillars">
-          <div class="pillar">
-            <span class="num">01</span>
-            <h3 data-i18n="pillar_custom_title">Custom</h3>
-            <p data-i18n="pillar_custom_desc">Flexible designs, materials, colors, sizes, and branding.</p>
-          </div>
-          <div class="pillar">
-            <span class="num">02</span>
-            <h3 data-i18n="pillar_quality_title">Quality</h3>
-            <p data-i18n="pillar_quality_desc">High-quality materials and precise finishing on every piece we produce.</p>
-          </div>
-          <div class="pillar">
-            <span class="num">03</span>
-            <h3 data-i18n="pillar_service_title">Service</h3>
-            <p data-i18n="pillar_service_desc">Responsive consultation and dedicated support from order to delivery.</p>
-          </div>
-          <div class="pillar">
-            <span class="num">04</span>
-            <h3 data-i18n="pillar_reliable_title">Reliable</h3>
-            <p data-i18n="pillar_reliable_desc">Committed to professional service and dependable production.</p>
-          </div>
-        </div>
-      </div>
+    <div class="catalog-wrap">
+      <div class="catalog-grid" id="catalogGrid"></div>
     </div>
-  </section>
+  </div>
+
+  <div class="product-detail" id="productDetail"></div>
 
   <footer class="site-footer">
     <p data-i18n="footer_tagline">ALL GARMENT — Custom Apparel &amp; Konveksi</p>
@@ -123,6 +85,7 @@
 
 <script src="i18n.js"></script>
 <script src="common.js"></script>
-<script src="home.js"></script>
+<script src="data.js"></script>
+<script src="catalog.js"></script>
 </body>
 </html>
